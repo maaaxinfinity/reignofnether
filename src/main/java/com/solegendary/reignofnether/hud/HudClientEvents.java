@@ -763,7 +763,8 @@ public class HudClientEvents {
                     MyRenderer.renderTooltip(evt.getPoseStack(), tooltip, mouseX + 5, mouseY);
                 }
                 List<FormattedCharSequence> tooltipWorkersAssigned =
-                        List.of(FormattedCharSequence.forward("Workers on " + resourceName.toLowerCase(), Style.EMPTY));
+                        List.of(FormattedCharSequence.forward(Component.translatable("hud.hudclientevents.workers_" + resourceName.toLowerCase()).getString(), Style.EMPTY));
+                        //List.of(FormattedCharSequence.forward("Workers on " + resourceName.toLowerCase(), Style.EMPTY));
                 if (!resourceName.equals("pop") &&
                         mouseX >= blitX + 69 &&
                         mouseY >= blitY &&
