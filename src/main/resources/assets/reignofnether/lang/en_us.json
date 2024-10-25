@@ -79,7 +79,7 @@
     "abilities.reignofnether.roar.tooltip2": "Emit a deafening roar, knocking away, damaging",
     "abilities.reignofnether.roar.tooltip3": "and briefly slowing down all nearby enemies. ",
     "abilities.reignofnether.evoker_fangs_circular": "Evoker Fangs (Circular)",
-    "abilities.reignofnether.evoker_fangs_circular.tooltip1": "\\uE006  %d  \\uE004  %ds  \\uE005  ",
+    "abilities.reignofnether.evoker_fangs_circular.tooltip1": "\uE006  %d  \uE004  %ds  \uE005  ",
     "abilities.reignofnether.evoker_fangs_circular.tooltip2": "Have this evoker summon a circle of snapping",
     "abilities.reignofnether.evoker_fangs_circular.tooltip3": "fangs around itself when attacking.",
     "abilities.reignofnether.evoker_fangs_line": "Evoker Fangs (Line)",
