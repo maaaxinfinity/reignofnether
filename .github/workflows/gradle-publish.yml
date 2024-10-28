@@ -40,18 +40,22 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      # Step 5: Build with Gradle
+      # Step 5: Ensure gradlew is executable (add chmod)
+      - name: Ensure gradlew is executable
+        run: chmod +x ./gradlew
+
+      # Step 6: Build with Gradle
       - name: Build with Gradle
         run: ./gradlew build
 
-      # Step 6: Upload build artifacts
+      # Step 7: Upload build artifacts
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: build-artifacts  # 工件名称
-          path: ./build/libs/    # 这里指定构建输出文件的路径，根据你的项目输出位置调整
+          name: build-artifacts  
+          path: ./build/libs/    
 
-      # Step 7: Publish to GitHub Packages
+      # Step 8: Publish to GitHub Packages
       - name: Publish to GitHub Packages
         run: ./gradlew publish
         env:
