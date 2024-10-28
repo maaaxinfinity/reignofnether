@@ -98,7 +98,7 @@ public class TutorialClientEvents {
             if (getStage() == INTRO) {
                 specialMsg(helpButtonText);
             } else {
-                msg(helpButtonText, true, CHAT);
+                    msg(helpButtonText, (Object) CHAT);
             }
         },
         () -> {
@@ -323,7 +323,7 @@ public class TutorialClientEvents {
 
     private static void nextStageAfterSpace() {
         blockUpdateStage = true;
-        msg("tutorial.reignofnether.ready_continue", true, CHAT);
+        msg("tutorial.reignofnether.ready_continue", CHAT);
         setHelpButtonText("tutorial.reignofnether.ready_continue");
         TutorialRendering.clearButtonName();
         pressSpaceToContinue = true;

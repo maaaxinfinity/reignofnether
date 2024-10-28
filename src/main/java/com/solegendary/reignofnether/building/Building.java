@@ -48,6 +48,7 @@ import net.minecraft.world.level.chunk.ChunkAccess;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.world.ForgeChunkManager;
+import net.minecraft.client.resources.language.I18n;
 
 import java.util.*;
 

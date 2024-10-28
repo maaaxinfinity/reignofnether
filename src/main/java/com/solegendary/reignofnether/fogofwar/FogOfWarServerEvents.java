@@ -32,7 +32,7 @@ public class FogOfWarServerEvents {
             enabled
             ? "server.reignofnether.enabled_fog_of_war"
             : "server.reignofnether.disabled_fog_of_war"
-        ), true);
+        ));
         syncClientFog();
     }
 

@@ -314,7 +314,7 @@ public class PlayerServerEvents {
 
             if (!TutorialServerEvents.isEnabled()) {
                 serverPlayer.sendSystemMessage(Component.literal(""));
-                sendMessageToAllPlayers("server.reignofnether.started", true, playerName);
+                sendMessageToAllPlayers("server.reignofnether.started", playerName);
                 sendMessageToAllPlayers("server.reignofnether.total_players", rtsPlayers.size());
             }
             PlayerClientboundPacket.syncRtsGameTime(rtsGameTicks);
@@ -358,7 +358,7 @@ public class PlayerServerEvents {
             ResourcesServerEvents.resetResources(bot.name);
 
             if (!TutorialServerEvents.isEnabled()) {
-                sendMessageToAllPlayers("server.reignofnether.bot_added", true, bot.name);
+                sendMessageToAllPlayers("server.reignofnether.bot_added", bot.name);
                 sendMessageToAllPlayers("server.reignofnether.total_players", rtsPlayers.size());
             }
             saveRTSPlayers();
@@ -543,7 +543,6 @@ public class PlayerServerEvents {
             rtsPlayers.removeIf(rtsPlayer -> {
                 if (rtsPlayer.name.equals(playerName)) {
                     sendMessageToAllPlayers("server.reignofnether.is_defeated",
-                        true,
                         playerName,
                         Component.translatable(reason)
                     );
@@ -568,7 +567,7 @@ public class PlayerServerEvents {
             // if there is only one player left, they are automatically victorious
             if (rtsPlayers.size() == 1) {
                 for (RTSPlayer rtsPlayer : rtsPlayers) {
-                    sendMessageToAllPlayers("server.reignofnether.victorious", true, rtsPlayer.name);
+                    sendMessageToAllPlayers("server.reignofnether.victorious",rtsPlayer.name);
                     PlayerClientboundPacket.victory(rtsPlayer.name);
                 }
             }
@@ -606,7 +605,7 @@ public class PlayerServerEvents {
             PlayerClientboundPacket.resetRTS();
 
             if (!TutorialServerEvents.isEnabled()) {
-                sendMessageToAllPlayers("server.reignofnether.match_reset", true);
+                sendMessageToAllPlayers("server.reignofnether.match_reset");
             }
 
             ResourcesServerEvents.resourcesList.clear();
