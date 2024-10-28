@@ -13,7 +13,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -28,22 +27,24 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
-          settings-path: ${{ github.workspace }} # location for the settings.xml file
+          server-id: github
+          settings-path: ${{ github.workspace }}
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
+        uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582
 
-      - name: Give execute permission to gradlew
-        run: chmod +x ./gradlew  # 确保 gradlew 有执行权限
+      - name: Debug permissions
+        run: |
+          echo "Current user: $(whoami)"
+          echo "File permissions:"
+          ls -l ./gradlew
+          chmod +x ./gradlew
 
       - name: Build with Gradle
-        run: ./gradlew build
+        run: ${{ github.workspace }}/gradlew build
 
-      # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
-      # the publishing section of your build.gradle
       - name: Publish to GitHub Packages
-        run: ./gradlew publish
+        run: ${{ github.workspace }}/gradlew publish
         env:
           USERNAME: ${{ github.actor }}
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
